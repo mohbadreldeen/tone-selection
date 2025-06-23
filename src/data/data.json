@@ -1,0 +1,67 @@
+{
+	"tones": [
+		{
+			"id":"1",
+			"name": "Bold",
+			"image": "01-bold.jpg",
+			"swiped": false,
+			"selected": 0
+		},
+		{
+			"id":"2",
+			"name": "Minimal",
+			"image": "02-minimal.jpg",
+			"swiped": false,
+			"selected": 0
+		},
+		{
+			"id":"3",
+			"name": "Modern",
+			"image": "03-modern.jpg",
+			"swiped": false,
+			"selected": 0
+		},
+		{
+			"id":"4",
+			"name": "Tech",
+			"image": "04-tech.jpg",
+			"swiped": false,
+			"selected": 0
+		},
+		{
+			"id":"5",
+			"name": "Elegant",
+			"image": "05-elegant.jpg",
+			"swiped": false,
+			"selected": 0
+		},
+		{
+			"id":"6",
+			"name": "Clean",
+			"image": "06-clean.jpg",
+			"swiped": false,
+			"selected": 0
+		},
+		{
+			"id":"7",
+			"name": "Playful",
+			"image": "07-playful.jpg",
+			"swiped": false,
+			"selected": 0
+		},
+		{
+			"id":"8",
+			"name": "Luxury",
+			"image": "08-luxury.jpg",
+			"swiped": false,
+			"selected": 0
+		},
+		{
+			"id":"9",
+			"name": "Brutalist",
+			"image": "09-brutalist.jpg",
+			"swiped": false,
+			"selected": 0
+		}	
+	]
+}
