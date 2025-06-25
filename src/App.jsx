@@ -1,39 +1,42 @@
-import { useEffect, useState } from 'react'
-import Card from './components/Card'
 import './App.css'
-import data from './data/data.json'
-
-import tonesStore from './store'
-
-
+import Swiper from './components/Swiper'
+import KOH from './components/KOH'
+import Results from './components/Results'
+import tonesStore, { STEPS } from './store'
+import SectionTitle from './components/SectionTitle'
 function App() {
-
-  const tones = tonesStore((state) => state.tones); // subscribe to tones
-  const setTones = tonesStore((state) => state.setTones)
-
-  useEffect(() => {
-    setTones(data.tones)
-  }, [setTones])
-  
+ const step = tonesStore((state) => state.step);
   return (
     <>
-      <div className='grid'>
-        {
-          tones.length && tones.filter(tone => !tone.swiped).map((tone) => (
-            <Card 
-              key={tone.id}
-              tone={tone}
-              index={tones.indexOf(tone)} 
-            />
-          ))
-          
-          }
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    {
+      step === STEPS.TONE_SELECTION && (
+        <>
+          <SectionTitle>Tone Selector</SectionTitle>
+          <Swiper />    
+        </>
+      )
+    }
+    {
+      step === STEPS.KOH && 
+      (
+        <>
+          <SectionTitle>King of the Hill</SectionTitle>
+          <KOH />
+        </>
+      )
+      
+    }
+    {
+      step === STEPS.DONE && 
+      (
+        <>
+          <SectionTitle>Done!, Your prefrences</SectionTitle>
+          <Results />
+        </>
+      )
+    }
+    
     </>
   )
 }
-
 export default App
