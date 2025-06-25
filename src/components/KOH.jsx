@@ -28,29 +28,26 @@ const KOH = () => {
 	const handelSelection = (tone) => {
 		setAnimating(false);
 		setAnimatingID(0);
-		// const newTones = tones.filter((t) => t.id !== loserTone[0].id);
-		// setKohTones(newTones);
-		setWinnerTones([...winnerTones, loserTone]);
+		if (tones.length === 0) {
+			const winnerIndex = currentContenders.findIndex(t => t.id !== loserTone.id);
+			setWinnerTones([...winnerTones, ...[loserTone, currentContenders[winnerIndex]]]);
+			setStep(STEPS.DONE);
+		}else{
+			setWinnerTones([...winnerTones, loserTone]);
+			const loserIndex = currentContenders.findIndex(t => t.id === loserTone.id);
+			const newContenders = [...currentContenders];
+			newContenders[loserIndex] = tones[0];
+			setCurrentContenders([...newContenders]);
+			setKohTones([...tones.slice(1)]);
+			 
+		}
 	}
 	useEffect(() => {
-		if (tones.length >= 2) {
-			if (loserTone) {
-				const loserIndex = currentContenders.findIndex(t => t.id === loserTone.id);
-				const newContenders = [...currentContenders];
-				newContenders[loserIndex] = tones[0];
-				setCurrentContenders([...newContenders]);
-				setKohTones(tones.slice(1));
-				// setKohTones(tones.slice(0, 1));
-			} else {
-				setCurrentContenders([...tones.slice(0, 2)]);
-				setKohTones([...tones.slice(2)]);
-			}
-			
-		} else  {
-			setWinnerTones([...winnerTones, tones[0]]);
-			setStep(STEPS.DONE);
-		}
-	}, [winnerTones]);
+		setCurrentContenders([...tones.slice(0, 2)]);
+		setKohTones([...tones.slice(2)]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+ 
 	
  	return (
 		<>
@@ -66,7 +63,7 @@ const KOH = () => {
 								  < >
 									{animating && animatingId === tone.id && (
 										<motion.div
-
+											key={tone.id}
 											initial={{ opacity: 1, x: 0 }}
 											animate={{ opacity: 0, x: -100 }}
 											transition={{ duration: 0.4 }}

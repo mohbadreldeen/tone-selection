@@ -6,9 +6,7 @@ import { startOver } from '../utils';
 const Results = () => {
 
 	const winnerTones = tonesStore((state) => state.winnerTones);
- 
- 
-	return (
+ 	return (
 		<div className="results">
 
 			<div className="results-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gridGap: '16px', marginBottom: '24px' }}>

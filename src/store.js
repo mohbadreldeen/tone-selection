@@ -26,10 +26,6 @@ const tonesStore = create((set) => ({
 
 	kohTones: [],
 	setKohTones: (tones) => set({ kohTones: tones }),
-	primaryTone: null,
-	secondaryTones: [],
-	setPrimaryTone: (tone) => set({ primaryTone: tone }),
-	setSecondaryTones: (tones) => set({ secondaryTones: tones }),
 	winnerTones: [],
 	setWinnerTones: (tones) => set({ winnerTones: tones }),
 }))
